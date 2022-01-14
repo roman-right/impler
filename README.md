@@ -1,8 +1,8 @@
-## Implements the `impl` pattern*
+## Implementation pattern*
 
 /* *inspired by Rust*
 
-Useful when it is needed to extend a class (usually 3d party) with some methods
+Useful when it is needed to extend a class (usually 3d party) with some methods (regular, class, or static)
 
 ### Install
 

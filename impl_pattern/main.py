@@ -19,7 +19,7 @@ def _impl(cls: Type, impl_type: _ImplType):
         elif impl_type == _ImplType.STATIC_METHOD:
             method = staticmethod(f)
         else:
-            raise TypeError("impl_type is wrong. See ImplType enum class")
+            raise TypeError("impl_type is wrong. See _ImplType enum class")
         setattr(cls, f.__name__, method)
 
         @wraps(f)

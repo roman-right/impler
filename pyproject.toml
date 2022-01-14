@@ -6,7 +6,7 @@ authors = ["Roman <roman-right@protonmail.com>"]
 license = "Apache-2.0"
 homepage = "https://github.com/roman-right/impl_pattern"
 repository = "https://github.com/roman-right/impl_pattern"
-keywords = ["impl", "pattern", "sync", "async", "python"]
+keywords = ["impl", "implementation", "pattern", "sync", "async", "python"]
 include = [
     "LICENSE",
 ]
