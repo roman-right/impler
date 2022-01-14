@@ -1,12 +1,20 @@
 [tool.poetry]
 name = "impl_pattern"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
-authors = ["Roman Right <roman-right@protonmail.com>"]
+authors = ["Roman <roman-right@protonmail.com>"]
+license = "Apache-2.0"
+homepage = "https://github.com/roman-right/impl_pattern"
+repository = "https://github.com/roman-right/impl_pattern"
+keywords = ["impl", "pattern", "sync", "async", "python"]
+include = [
+    "LICENSE",
+]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.7"
-asyncio = "^3.4.3"
+asyncio = "^3.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0"
