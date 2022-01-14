@@ -3,7 +3,8 @@ from typing import Type
 import pytest
 
 from impl_pattern import __version__
-from impl_pattern.main import impl, impl_classmethod, impl_staticmethod
+from impl_pattern.main import impl, impl_classmethod, impl_staticmethod, \
+    impl_interface
 
 pytestmark = pytest.mark.asyncio
 
@@ -17,6 +18,44 @@ def Cls():
             self.internal = 0
 
     return A
+
+
+@pytest.fixture
+def Interface():
+    class Smth:
+        value = 500
+        _protected_val = 0
+
+
+        def _protected_method(self):
+            return 0
+
+        def __magic_method__(self):
+
+
+        def get_100(self):
+            return 100
+
+        @classmethod
+        def get_101(cls):
+            return 101
+
+        @staticmethod
+        def get_102():
+            return 102
+
+        async def get_103(self):
+            return 103
+
+        @classmethod
+        async def get_104(cls):
+            return 104
+
+        @staticmethod
+        async def get_105():
+            return 105
+
+    return Smth
 
 
 def test_version():
@@ -75,3 +114,33 @@ async def test_async_staticmethod(Cls):
         return 10
 
     assert await Cls.get_ten() == 10
+
+
+async def test_interface_as_parent(Cls, Interface):
+    class Sample(Cls):
+        ...
+
+    s = Sample()
+
+    @impl_interface(Sample, as_parent=True)
+    class New(Interface):
+        ...
+
+    assert isinstance(s, New)
+    assert issubclass(Sample, New)
+    assert s.get_100() == 100
+    assert Sample.get_101() == 101
+    assert Sample.get_102() == 102
+    assert await s.get_103() == 103
+    assert await Sample.get_104() == 104
+    assert await Sample.get_105() == 105
+    assert Sample.value == 500
+
+
+async def test_interface_as_parent_inherited_from_object(Cls, Interface):
+    with pytest.raises(TypeError):
+        @impl_interface(Cls, as_parent=True)
+        class New(Interface):
+            ...
+
+async def
