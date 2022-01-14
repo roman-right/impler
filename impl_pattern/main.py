@@ -112,7 +112,7 @@ def impl_interface(
                     "__") and not attr_name.endswith("__")
                 is_magic = attr_name.startswith("__") and attr_name.endswith(
                     "__")
-                if # TODO make condition
+                if True:  # TODO make condition
                     setattr(cls, attr_name, getattr(interface, attr_name))
         return cls
 
