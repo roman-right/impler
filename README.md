@@ -93,7 +93,7 @@ print(Sample.value)
 
 #### Static methods
 
-Static methods use the same syntax but with `impl_staticmethod` decorator
+Static methods use the same syntax but with the `impl_staticmethod` decorator
 
 ```python
 from impl_pattern import impl_staticmethod
