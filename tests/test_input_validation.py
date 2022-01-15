@@ -2,8 +2,8 @@ from typing import Type
 
 import pytest
 
-from impl_pattern import impl
-from impl_pattern.exceptions import ImplException
+from impler import impl
+from impler.exceptions import ImplException
 
 
 def test_incompatible_type(Cls):

@@ -1,4 +1,4 @@
-from impl_pattern import __version__
+from impler import __version__
 
 
 def test_version():

@@ -2,7 +2,7 @@ from enum import Enum, unique
 from inspect import isclass
 from typing import Callable, Awaitable, Union, Type
 
-from impl_pattern.exceptions import ImplException
+from impler.exceptions import ImplException
 
 
 @unique

@@ -8,13 +8,13 @@ or interfaces
 ### Install
 
 ```shell
-pip install impl_pattern
+pip install impler
 ```
 
 or
 
 ```shell
-poetry add impl_pattern
+poetry add impler
 ```
 
 ### Usage
@@ -25,7 +25,7 @@ Using implementation pattern you can extend any class (even 3rd party) with
 regular, class or static methods.
 
 ```python
-from impl_pattern import impl
+from impler import impl
 from pydantic import BaseModel
 
 
@@ -106,7 +106,7 @@ class BaseFileInterfase:
 This is how you can implement this interface for Pydantic `BaseModel` class:
 
 ```python
-from impl_pattern import impl
+from impler import impl
 from pydantic import BaseModel
 from pathlib import Path
 
@@ -137,4 +137,4 @@ print(isinstance(point, BaseFileInterface))
 # True
 ```
 
-The whole api documentation could be found by the [link](https://github.com/roman-right/impl_pattern/docs/api.md)
+The whole api documentation could be found by the [link](https://github.com/roman-right/impler/docs/api.md)

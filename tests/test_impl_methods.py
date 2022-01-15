@@ -2,8 +2,8 @@ from typing import Type
 
 import pytest
 
-from impl_pattern import impl, impl_classmethod, impl_staticmethod
-from impl_pattern.main import impl_method
+from impler import impl, impl_classmethod, impl_staticmethod
+from impler.main import impl_method
 
 pytestmark = pytest.mark.asyncio
 

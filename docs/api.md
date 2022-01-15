@@ -1,8 +1,8 @@
-<a id="impl_pattern.main"></a>
+<a id="impler.main"></a>
 
-# impl\_pattern.main
+# impler.main
 
-<a id="impl_pattern.main.impl"></a>
+<a id="impler.main.impl"></a>
 
 ## impl Objects
 
@@ -14,7 +14,7 @@ Decorator.
 
 Implementation of a method or of an interface for the classes.
 
-<a id="impl_pattern.main.impl.__init__"></a>
+<a id="impler.main.impl.__init__"></a>
 
 #### \_\_init\_\_
 
@@ -37,7 +37,7 @@ Init
 - `as_classmethod` - bool - set method as a class method
 - `as_staticmethod` - bool - set method as a static method
 
-<a id="impl_pattern.main.impl_method"></a>
+<a id="impler.main.impl_method"></a>
 
 #### impl\_method
 
@@ -55,7 +55,7 @@ Set function as a method of the given class (regular, classmethod or staticmetho
 - `as_classmethod` - bool - set method as a class method
 - `as_staticmethod` - bool - set method as a static method
 
-<a id="impl_pattern.main.impl_classmethod"></a>
+<a id="impler.main.impl_classmethod"></a>
 
 #### impl\_classmethod
 
@@ -71,7 +71,7 @@ Set function as a classmethod of the given class
 - `target` - Type
 - `override` - bool - should exist method be overridden
 
-<a id="impl_pattern.main.impl_staticmethod"></a>
+<a id="impler.main.impl_staticmethod"></a>
 
 #### impl\_staticmethod
 
@@ -87,7 +87,7 @@ Set function as a staticmethod of the given class
 - `target` - Type
 - `override` - bool - should exist method be overridden
 
-<a id="impl_pattern.main.impl_interface"></a>
+<a id="impler.main.impl_interface"></a>
 
 #### impl\_interface
 

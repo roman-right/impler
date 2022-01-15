@@ -1,7 +1,7 @@
 import pytest
 
-from impl_pattern import impl, impl_interface
-from impl_pattern.exceptions import ImplException
+from impler import impl, impl_interface
+from impler.exceptions import ImplException
 
 pytestmark = pytest.mark.asyncio
 

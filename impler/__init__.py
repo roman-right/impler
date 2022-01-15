@@ -1,4 +1,4 @@
-from impl_pattern.main import (
+from impler.main import (
     impl,
     impl_classmethod,
     impl_staticmethod,

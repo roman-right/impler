@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "impl_pattern"
+name = "impler"
 version = "0.2.0"
 description = ""
 authors = ["Roman <roman-right@protonmail.com>"]
 license = "Apache-2.0"
-homepage = "https://github.com/roman-right/impl_pattern"
-repository = "https://github.com/roman-right/impl_pattern"
-keywords = ["impl", "implementation", "pattern", "sync", "async", "python"]
+homepage = "https://github.com/roman-right/impler"
+repository = "https://github.com/roman-right/impler"
+keywords = ["impl", "impler", "implementation", "pattern", "sync", "async", "python"]
 include = [
     "LICENSE",
 ]
@@ -28,7 +28,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--cov-report term-missing --cov=impl_pattern --cov-branch --cov-fail-under=85"
+addopts = "--cov-report term-missing --cov=impler --cov-branch --cov-fail-under=85"
 testpaths = [
     "tests",
 ]
