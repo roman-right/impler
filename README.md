@@ -94,7 +94,7 @@ Here is example of the base interface, which
 from pathlib import Path
 
 
-class BaseFileInterfase:
+class BaseFileInterface:
     def dump(self, path: Path):
         ...
 
