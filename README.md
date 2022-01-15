@@ -2,7 +2,8 @@
 
 /* *inspired by Rust*
 
-Useful when it is needed to extend a class (usually 3d party) with some methods (regular, class, or static)
+Useful when it is needed to extend a class (usually 3d party) with some methods
+or interfaces
 
 ### Install
 
@@ -18,106 +19,122 @@ poetry add impl_pattern
 
 ### Usage
 
-#### Regular methods
+#### Methods implementation
+
+Using implementation pattern you can extend any class (even 3rd party) with
+regular, class or static methods.
 
 ```python
 from impl_pattern import impl
+from pydantic import BaseModel
 
-class Sample:
-    def __init__(self):
-        self.value = 10
 
-@impl(Sample)
-def plus_one(self: Sample):
-    self.value += 1
+@impl(BaseModel)
+def fields_count(self: BaseModel):
+    return len(self.__fields__)
 
-s = Sample()
-s.plus_one()
 
-print(s.value) 
-# 11
+class Point(BaseModel):
+    x: int = 0
+    y: int = 1
+
+
+point = Point()
+print(point.fields_count())
 ```
 
-it works with async methods as well
+Class methods
 
 ```python
-from asyncio import sleep
+@impl_classmethod(BaseModel)
+def fields_count(cls):
+    return len(cls.__fields__)
 
-@impl(Sample)
-async def plus_one(self: Sample):
-    await sleep(1)
-    self.value += 1
 
-s = Sample()
-await s.plus_one()
+# or
 
-print(s.value) 
-# 11
+@impl(BaseModel)
+@classmethod
+def fields_count(cls):
+    return len(cls.__fields__)
 ```
 
-#### Class methods
-
-To register function as a classmethod you can use `impl_classmethod` decorator
+Static methods
 
 ```python
-from impl_pattern import impl_classmethod
+@impl_staticmethod(BaseModel)
+def zero(cls):
+    return 0
 
-class Sample:
-    value = 10
 
-@impl_classmethod(Sample)
-def plus_one(cls):
-    cls.value += 1
+# or
 
-Sample.plus_one()
-
-print(Sample.value) 
-# 11
+@impl(BaseModel)
+@staticmethod
+def zero(cls):
+    return 0
 ```
 
-This works with async methods too
+Async methods
 
 ```python
-from asyncio import sleep
-
-@impl_classmethod(Sample)
-async def plus_one(cls):
-    await sleep(1)
-    self.value += 1
-
-await Sample.plus_one()
-
-print(Sample.value) 
-# 11
+@impl(BaseModel)
+async def zero(cls):
+    await asyncio.sleep(1)
+    return 0
 ```
 
-#### Static methods
+#### Interfaces implementation
 
-Static methods use the same syntax but with the `impl_staticmethod` decorator
+The same way you can extend any class with the whole interface
+
+Here is example of the base interface, which
 
 ```python
-from impl_pattern import impl_staticmethod
+from pathlib import Path
 
-class Sample:
-    ...
 
-@impl_staticmethod(Sample)
-def get_one():
-    return 1
+class BaseFileInterfase:
+    def dump(self, path: Path):
+        ...
 
-print(Sample.get_one()) 
-# 1
+    @classmethod
+    def parse(cls, path: Path):
+        ...
 ```
 
-This works with async methods too
+This is how you can implement this interface for Pydantic `BaseModel` class:
 
 ```python
-from asyncio import sleep
+from impl_pattern import impl
+from pydantic import BaseModel
+from pathlib import Path
 
-@impl_staticmethod(Sample)
-async def get_one():
-    return 1
 
-print(await Sample.get_one()) 
-# 1
+@impl(BaseModel, as_parent=True)
+class ModelFileInterface(BaseFileInterface):
+    def dump(self, path: Path):
+        path.write_text(self.json())
+        
+    @classmethod
+    def parse(cls, path: Path):
+        return cls.parse_file(path)
+
 ```
+
+If `as_parent` parameter is `True` the implementation will be injected to the list of the target class parents.
+
+Then you can check if the class or object implements the interface:
+
+```python
+print(issubclass(BaseModel, BaseFileInterfase))
+# True
+
+print(issubclass(Point, BaseFileInterfase))
+# True
+
+print(isinstance(point, BaseFileInterface))
+# True
+```
+
+The whole api documentation could be found by the [link](https://github.com/roman-right/impl_pattern/docs/api.md)
