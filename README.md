@@ -1,11 +1,13 @@
-## Implementation pattern*
-
-/* *inspired by Rust*
+## Implementation pattern *(inspired by Rust)*
 
 Useful when it is needed to extend a class (usually 3d party) with some methods
 or interfaces
 
-### Install
+![](https://raw.githubusercontent.com/roman-right/impler/main/assets/logo.svg)
+
+*Please, be careful. This library is literally a class patcher.*
+
+## Install
 
 ```shell
 pip install impler
@@ -17,9 +19,9 @@ or
 poetry add impler
 ```
 
-### Usage
+## Usage
 
-#### Methods implementation
+### Methods implementation
 
 Using implementation pattern you can extend any class (even 3rd party) with
 regular, class or static methods.
@@ -84,7 +86,7 @@ async def zero(cls):
     return 0
 ```
 
-#### Interfaces implementation
+### Interfaces implementation
 
 The same way you can extend any class with the whole interface
 
