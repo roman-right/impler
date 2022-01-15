@@ -158,8 +158,6 @@ class impl:
         self.subject = subject
         self._detect_subject_type()
 
-        print(self.subject_type)
-
         self._validate_input()
         self._prepare_subject()
 
