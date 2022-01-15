@@ -137,4 +137,4 @@ print(isinstance(point, BaseFileInterface))
 # True
 ```
 
-The whole api documentation could be found by the [link](https://github.com/roman-right/impler/docs/api.md)
+The whole api documentation could be found by the [link](https://github.com/roman-right/impler/blob/main/docs/api.md)
