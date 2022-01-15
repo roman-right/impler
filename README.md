@@ -90,7 +90,7 @@ async def zero(cls):
 
 The same way you can extend any class with the whole interface
 
-Here is example of the base interface, which
+Here is example of the base interface
 
 ```python
 from pathlib import Path
