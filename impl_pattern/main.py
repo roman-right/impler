@@ -1,9 +1,10 @@
 import inspect
-from enum import Enum
+from enum import Enum, unique
 from functools import wraps
 from typing import Type, Callable
 
 
+@unique
 class _ImplType(str, Enum):
     METHOD = "METHOD"
     CLASS_METHOD = "CLASS_METHOD"
